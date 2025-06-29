@@ -110,7 +110,7 @@ def export_session(format_type):
             pdf.cell(200, 10, txt=f"{section}", ln=1, align='L')
             pdf.multi_cell(0, 10, txt=json.dumps(content, indent=2))
         pdf_bytes = BytesIO()
-        pdf.output(pdf_bytes, 'F')
+        pdf.output(name=pdf_bytes, dest='S')
         st.download_button("Download as PDF", pdf_bytes.getvalue(), file_name=f"{save_name or 'story_session'}.pdf")
 
 export_session("TXT")
